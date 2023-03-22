@@ -1,0 +1,21 @@
+.about {
+    font-weight: 700;
+    font-size: 2rem;
+    font-family: 'Roboto';
+
+    margin-bottom: 16px;
+
+}
+
+.content {
+    font-weight: 400;
+    letter-spacing: .5px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.hasNoContent {
+    font-weight: 400;
+    letter-spacing: .5px;
+    font-family: 'Roboto', sans-serif;
+}
