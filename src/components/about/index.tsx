@@ -13,7 +13,7 @@ export default function About({ children }: AboutProps) {
             <p className={styles.hasNoContent}>The user don't write anything about yourself</p>
         ) : (
             <>
-                <h2 className={styles.about}>About</h2>
+                <h2>About me</h2>
                 <p className={styles.content}>{children}</p>
             </>
         )

@@ -11,9 +11,9 @@ h1, h2 {
 
 }
 
-h1 { font-size: 3rem; }
+h1 { font-size: 2rem; }
 
-h2 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
 
 p {
   font-size: 1rem;
@@ -33,4 +33,15 @@ strong {
 a, a:visited , a:target {
   text-decoration: none;
   color: #009dff;
+}
+
+ul {
+  position: relative;
+  left: 18px;
+}
+
+li {
+  margin: 12px 0;
+  width: auto;
+  width: 85%;
 }

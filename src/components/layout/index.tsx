@@ -9,7 +9,7 @@ import utilStyles from '@/styles/utils.module.css'
 
 type LayoutProps = {
 	children: ReactNode
-	home: boolean
+	home?: boolean
 }
 
 const name = 'Huann Vicente'
@@ -27,10 +27,6 @@ export default function Layout({ children, home = false }: LayoutProps) {
 				/>
 				<meta
 					property="og:image"
-					// content={`https://og-image.vercel.app/${encodeURI(
-					// 	siteTitle
-					// )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-					// content="aijdasodj"
 				/>
 				<meta
 					name="og:title"
@@ -40,6 +36,9 @@ export default function Layout({ children, home = false }: LayoutProps) {
 					name="twitter:card"
 					content="summary_large_image"
 				/>
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 			</Head>
 			<header className={styles.header}>
 				{home ? (
@@ -48,35 +47,35 @@ export default function Layout({ children, home = false }: LayoutProps) {
 							priority
 							src="/images/github-profile.jpg"
 							className={utilStyles.borderCircle}
-							style={{objectFit: 'cover'}}
-							width={144}
-							height={144}
+							style={{ objectFit: 'cover' }}
+							width={100}
+							height={100}
 							alt="Huann profile image"
 						/>
 						<h1 className={utilStyles.headingXl}>{name}</h1>
 					</>
-				) : (	
+				) : (
 					<>
 						<Link href="/">
 							<Image
 								priority
 								src="/images/github-profile.jpg"
-								style={{objectFit: 'cover'}}
+								style={{ objectFit: 'cover' }}
 								className={utilStyles.borderCircle}
-								width={144}
-								height={144}
+								width={100}
+								height={100}
 								alt="Huann profile image"
 							/>
 						</Link>
-						<h2 className={utilStyles.headingLg}>
-							<Link href="/" className={utilStyles.heading2Xl}>
+						<h2 className={styles.profileName}>
+							<Link style={{color: '#111'}} href="/" >
 								{name}
 							</Link>
 						</h2>
 					</>
 				)}
 			</header>
-			<main>{children}</main>
+			<main className={utilStyles.fontParagraph}>{children}</main>
 			{!home && (
 				<div className={styles.backToHome}>
 					<Link href="/" >Back to home</Link>

@@ -1,5 +1,6 @@
-import About from './about/index'
-import Layout from './layout/index'
-import Contact from './contact/index'
+import About from './about'
+import Layout from './layout'
+import Contact from './contact'
+import { Date } from './date'
 
-export { Layout , About , Contact }
+export { Layout , About , Contact , Date }

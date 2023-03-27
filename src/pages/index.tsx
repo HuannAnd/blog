@@ -4,15 +4,22 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import utilStyles from '@/styles/utils.module.css'
 
-import { About, Layout } from '@/components/index'
+import { About, Layout, Date } from '@/components/index'
 import { siteTitle } from '@/components/layout'
 
-import { AllPostsDataType, getSortedPostsData } from '@/utils/posts'
+
+import { PostData, getSortedPostsData } from '@/utils/posts'
+import Link from 'next/link'
+import { BlockList } from 'net'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+  let allPostsData = getSortedPostsData()
+
+  // removing the [id].tsx path 
+
+  allPostsData = allPostsData.slice(1)
 
   return {
     props: {
@@ -22,10 +29,10 @@ export async function getStaticProps() {
 }
 
 type HomeProps = {
-  allPostsData: AllPostsDataType
+  allPostsData: PostData[]
 }
 
-export default function Home({ allPostsData }) {
+export default function Home({ allPostsData }: HomeProps) {
 
 
   return (
@@ -36,19 +43,17 @@ export default function Home({ allPostsData }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
-      {/* <About>
-        Hello i'm <strong>Huann</strong>, and i'm front-end developer, i love listen lo-fi songs when i progamming. If you needed to me or want chat, call me in the discord <strong>LUTO#9448</strong>, bye :D.
-        </About> */}
       <section className={`${styles.headingMd} ${utilStyles.padding1px}`}>
+        <About>I'm front-end developer, i like to many things, but the a thing, wich often i do, is listen songs! Its awesome, i'm, listen various genders, however im actually listen Rock songs.</About>
         <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul>
-          {allPostsData.map(({ id: string , date, title }) =>
-            <li className={utilStyles.listItem} key={id}>
-              {title}
+        <ul style={{ left: '0' }}>
+          {allPostsData.map(({ id, date, title }) =>
+            <li style={{ listStyle: 'none' }} className={`${utilStyles.listItem} ${utilStyles.fontParagraph}`} key={id}>
+              <Link href={`/posts/${id}`}>{title}</Link>
               <br />
-              {id}
-              <br />
-              {date}
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
             </li>
           )}
         </ul>
