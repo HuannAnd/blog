@@ -1,0 +1,18 @@
+.contactContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.socialMedia {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 6px;
+
+  margin: 12px 0;
+}
+
+.link {
+  text-align: right;
+}
