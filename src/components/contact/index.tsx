@@ -12,7 +12,7 @@ type ContactProps = {
 
 export default function Contact({ githubURL, linkedingURL }: ContactProps) {
   return (!githubURL && !linkedingURL ? (
-    <p>There isn't contact here</p>
+    <p>There isn&apos;t contact here</p>
   ) : (
     <>
       <h2>Contact(s)</h2>
