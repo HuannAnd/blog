@@ -7,7 +7,7 @@ type DateProps = {
   dateString: string;
 } & TimeHTMLAttributes<HTMLTimeElement>
 
-export function Date({ dateString , ...props}: DateProps) {
+export default function Date({ dateString , ...props}: DateProps) {
   const date = parseISO(dateString);
   
   return <time dateTime={dateString} {...props}>{format(date, 'LLLL d, yyyy')}</time>

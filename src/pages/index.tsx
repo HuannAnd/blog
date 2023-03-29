@@ -44,7 +44,7 @@ export default function Home({ allPostsData }: HomeProps) {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
       </Head>
       <section className={`${styles.headingMd} ${utilStyles.padding1px}`}>
-        <About>I'm front-end developer, i like to many things, but the a thing, wich often i do, is listen songs! Its awesome, i'm listen various genders, however im actually listen Rock songs.</About>
+        <About>I&apos;m front-end developer, i like to many things, but the a thing, wich often i do, is listen songs! Its awesome, i&apos;m listen various genders, however im actually listen Rock songs.</About>
 
         <Contact githubURL='https://github.com/HuannAnd' linkedingURL='https://www.linkedin.com/in/huann-vicente-5092a9261/' />
         
