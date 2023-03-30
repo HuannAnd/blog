@@ -47,21 +47,26 @@ export function getSortedPostsData() {
 export function getAllPostsId() {
   const fileNames = fs.readdirSync(postsDirectory);
 
-  const postsData: { params: { id: string } }[] = fileNames.map(fileName => {
-    return {
+  const postsData: ({ params: { id: string } } | null)[] = fileNames.map(fileName => fileName !== "[id].tsx" ?
+    ({
       params: {
         id: fileName.replace(/\.md$/, ''),
       }
-    }
-  })
+    }) : (null)
+  ).filter(x => x)
+
+  console.log(postsData)
 
   return postsData
 
 }
 
 export async function getPostData(id: string) {
+  console.log('I spent here baby')
+
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf-8')
+
 
   const matterResult = matter(fileContents);
 
@@ -76,6 +81,5 @@ export async function getPostData(id: string) {
     ...matterResult.data,
   }
 
-  
+
 }
-  
