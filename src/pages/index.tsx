@@ -10,7 +10,7 @@ import { siteTitle } from '@/components/layout'
 
 import { PostData, getSortedPostsData } from '@/utils/posts'
 import Link from 'next/link'
-import { BlockList } from 'net'
+import DateText from '@/components/date'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,8 +33,6 @@ type HomeProps = {
 }
 
 export default function Home({ allPostsData }: HomeProps) {
-
-
   return (
     <Layout home>
       <Head>
@@ -55,7 +53,7 @@ export default function Home({ allPostsData }: HomeProps) {
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={date} />
+                <DateText dateString={date} />
               </small>
             </li>
           )}
