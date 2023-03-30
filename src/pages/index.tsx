@@ -17,10 +17,6 @@ const inter = Inter({ subsets: ['latin'] })
 export async function getStaticProps() {
   let allPostsData = getSortedPostsData()
 
-  // removing the [id].tsx path 
-
-  allPostsData = allPostsData.slice(1)
-
   return {
     props: {
       allPostsData,
